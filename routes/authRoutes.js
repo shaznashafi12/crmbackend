@@ -6,7 +6,8 @@ import {
   createAdminForCompany,
   getAllUsers,
    updateUser,   
-  deleteUser,                         
+  deleteUser,
+  updateMyProfile,                         
 } from "../controller/authController.js";
 
 import { protect, isSuperAdmin } from "../middleware/auth.js";
@@ -16,7 +17,7 @@ const router = express.Router();
 router.post("/register", register);
 router.post("/login", login);
 router.get("/me", protect, getMe);
-router.put("/users/:id", protect, isSuperAdmin, updateUser);
+router.put("/users/:id", protect, updateUser);
 router.delete("/users/:id", protect, isSuperAdmin, deleteUser);
 router.post(
   "/create-admin",
@@ -30,4 +31,5 @@ router.get(
   isSuperAdmin,
   getAllUsers
 );
+router.put("/me", protect, updateMyProfile);
 export default router;
