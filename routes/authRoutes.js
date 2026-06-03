@@ -16,7 +16,7 @@ const router = express.Router();
 router.post("/register", register);
 router.post("/login", login);
 router.get("/me", protect, getMe);
-router.put("/users/:id",    protect, isSuperAdmin, updateUser);
+router.put("/users/:id", protect, isSuperAdmin, updateUser);
 router.delete("/users/:id", protect, isSuperAdmin, deleteUser);
 router.post(
   "/create-admin",
